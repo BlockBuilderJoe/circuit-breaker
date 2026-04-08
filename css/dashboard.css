@@ -449,7 +449,11 @@ button:disabled{opacity:.4;cursor:not-allowed}
 .sync-banner-btn{flex-shrink:0;font-size:.78rem;padding:8px 16px}
 
 /* Extension badge */
-.ext-badge{font-size:.68rem;padding:3px 8px;border-radius:6px;display:flex;align-items:center;gap:4px}
+.ext-badge{font-size:.68rem;padding:3px 8px;border-radius:6px;display:flex;align-items:center;gap:4px;transition:all .3s}
 .ext-badge.connected{color:var(--green);background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15)}
-.ext-badge.disconnected{color:var(--text-tri);background:var(--surface);border:1px solid var(--border)}
+.ext-badge.disconnected{color:var(--red);background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);font-weight:600;letter-spacing:.02em}
+@keyframes flash-install{0%{transform:scale(1)}10%{transform:scale(1.04)}20%{transform:scale(1);box-shadow:0 0 0 0 rgba(239,68,68,.5)}50%{box-shadow:0 0 16px 4px rgba(239,68,68,.25)}100%{box-shadow:0 0 0 0 transparent;transform:scale(1)}}
+.install-prompt.flash{animation:flash-install .6s ease-out}
+.install-prompt.needs-ext{border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.06)}
+.ext-badge.flash{animation:flash-install .6s ease-out}
 .ext-dot{width:5px;height:5px;background:var(--green);border-radius:50%;box-shadow:0 0 6px rgba(34,197,94,.3)}

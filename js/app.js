@@ -142,11 +142,26 @@ function updateExtensionBadge() {
       badge.innerHTML = '<span class="ext-dot"></span> Connected';
       badge.className = 'ext-badge connected';
     } else {
-      badge.innerHTML = 'Not installed';
+      badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Not installed';
       badge.className = 'ext-badge disconnected';
     }
   }
-  if (prompt) prompt.style.display = extensionConnected ? 'none' : '';
+  if (prompt) {
+    prompt.style.display = extensionConnected ? 'none' : '';
+    if (!extensionConnected) prompt.classList.add('needs-ext');
+  }
+}
+
+function flashInstallPrompt() {
+  if (extensionConnected) return;
+  const prompt = document.getElementById('install-prompt');
+  const badge = document.getElementById('ext-badge');
+  [prompt, badge].forEach(el => {
+    if (!el) return;
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+  });
 }
 
 function sendToExtension(data) {
@@ -917,6 +932,9 @@ function updateStatus() {
 // --- Save + Sync ---
 
 function saveAndSync() {
+  // Flash install prompt if extension not connected
+  flashInstallPrompt();
+
   // Always save to localStorage
   localStorage.setItem('cb_selections', JSON.stringify(selections));
 
