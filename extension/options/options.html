@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Circuit Breaker</title>
+  <script>
+    // chrome.tabs may not be available in options page context,
+    // so ask the background script to open the dashboard
+    chrome.runtime.sendMessage({ action: 'openDashboard' });
+    window.close();
+  </script>
+</head>
+<body></body>
+</html>

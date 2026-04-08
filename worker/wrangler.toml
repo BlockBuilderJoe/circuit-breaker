@@ -1,0 +1,14 @@
+name = "fuseboard-sync"
+main = "worker-entry.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+assets = { directory = "./public", binding = "ASSETS" }
+
+routes = [
+  { pattern = "circuitbreaker.app", custom_domain = true },
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fuseboard-sync"
+database_id = "eb2eb8b0-61b7-4405-a8db-60fbf1b6aac2"

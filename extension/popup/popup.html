@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circuit Breaker</title>
+  <link rel="stylesheet" href="popup.css">
+  <style>
+    body { width: 320px; padding: 16px 14px; }
+    .popup-main { text-align: center; padding: 12px 0; }
+    .popup-status { font-size: .82rem; color: var(--text-sec); margin-bottom: 14px; line-height: 1.5; }
+    .popup-status strong { color: var(--green); font-weight: 700; }
+    .popup-open-btn { width: 100%; padding: 12px; background: var(--green); color: #000; border: none; border-radius: 10px; font-weight: 700; font-size: .88rem; cursor: pointer; font-family: inherit; transition: .15s; }
+    .popup-open-btn:hover { filter: brightness(1.1); }
+    .popup-connected { display: flex; align-items: center; justify-content: center; gap: 5px; font-size: .68rem; color: var(--green); margin-top: 10px; }
+    .popup-connected .dot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; box-shadow: 0 0 6px rgba(34,197,94,.3); }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"><img src="../icons/icon-128.svg" class="logo-icon" alt="">Circuit<span class="dot"></span>Breaker <span class="version">v2.0.0</span></div>
+  </div>
+
+  <div class="popup-main">
+    <div class="status" style="border:none;margin:0;padding:8px 0">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">Loading...</span>
+    </div>
+    <button class="popup-open-btn" id="open-dashboard">Open Dashboard</button>
+    <div class="popup-connected"><span class="dot"></span> Extension connected</div>
+  </div>
+
+  <script src="../data/blocklists.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

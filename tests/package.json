@@ -1,0 +1,28 @@
+{
+  "name": "fusebox-tests",
+  "private": true,
+  "scripts": {
+    "test": "node run.js",
+    "test:site": "node run.js --site",
+    "test:all": "node run-all-browsers.js",
+    "test:chrome": "node run-all-browsers.js --browser chromium",
+    "test:firefox": "node run-all-browsers.js --browser firefox",
+    "test:safari": "node run-all-browsers.js --browser webkit",
+    "test:quick": "node run-all-browsers.js --headless --quick",
+    "test:site:all": "node run-all-browsers.js --site",
+    "test:url-blocking": "node run-url-blocking.js",
+    "test:url-blocking:verbose": "node run-url-blocking.js --verbose",
+    "test:restricted": "node run-restricted.js",
+    "test:restricted:headless": "node run-restricted.js --headless",
+    "test:restricted:adult": "node run-restricted.js --category adult-content",
+    "test:restricted:gambling": "node run-restricted.js --category gambling",
+    "test:restricted:dating": "node run-restricted.js --category dating",
+    "test:restricted:crypto": "node run-restricted.js --category crypto"
+  },
+  "dependencies": {
+    "playwright": "^1.59.0",
+    "puppeteer": "^23.0.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}

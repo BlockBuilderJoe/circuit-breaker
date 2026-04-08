@@ -1,0 +1,14 @@
+{
+  "name": "fuseboard-sync",
+  "version": "1.4.2",
+  "type": "module",
+  "scripts": {
+    "dev": "node node-entry.js",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "hono": "^4.12.9",
+    "@hono/node-server": "^1.8.0",
+    "better-sqlite3": "^11.0.0"
+  }
+}

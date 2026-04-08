@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.wrangler/
+.env
+*.woff2
+tests/results/
+tests/node_modules/
+tests/.env
+worker/public/
+worker/node_modules/
+worker/package-lock.json
+extension/.build-stamp

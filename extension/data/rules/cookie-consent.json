@@ -1,0 +1,752 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "axeptio.eu"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "consent.trustarc.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "consentcdn.cookiebot.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "consentmanager.net"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookie-script.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookiebot.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookieconsent.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookiefirst.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookieinformation.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookielaw.org"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "cookieyes.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "crownpeak.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "didomi.io"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "evidon.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "iubenda.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "onetrust.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "optanon.blob.core.windows.net"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "osano.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "privacy-mgmt.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "quantcast.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "quantserve.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "sdk.privacy-center.org"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "secureprivacy.ai"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "sourcepoint.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "sp-prod.net"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "termly.io"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "trustarc.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 28,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "truste.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 29,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "usercentrics.com"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "requestDomains": [
+        "usercentrics.eu"
+      ],
+      "resourceTypes": [
+        "script",
+        "image",
+        "stylesheet",
+        "sub_frame",
+        "xmlhttprequest",
+        "font",
+        "media",
+        "websocket",
+        "ping",
+        "other",
+        "main_frame"
+      ]
+    }
+  }
+]

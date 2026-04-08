@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circuit Breaker — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #000; color: #ccc; line-height: 1.7; padding: 40px 20px 80px; }
+    .container { max-width: 640px; margin: 0 auto; }
+    a { color: #2dc653; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1 { font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .updated { font-size: .8rem; color: #555; margin-bottom: 40px; }
+    h2 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-top: 36px; margin-bottom: 12px; }
+    p { margin-bottom: 14px; color: #aaa; font-size: .92rem; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; color: #aaa; font-size: .92rem; }
+    strong { color: #ddd; }
+    .highlight { background: rgba(45,198,83,.08); border: 1px solid rgba(45,198,83,.15); border-radius: 8px; padding: 14px 16px; margin: 16px 0; }
+    .highlight p { color: #bbb; margin-bottom: 0; }
+    .back { display: inline-block; margin-bottom: 24px; font-size: .85rem; color: #555; }
+    .back:hover { color: #2dc653; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back">&larr; Back to Circuit Breaker</a>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 31 March 2026</p>
+
+    <p>Circuit Breaker is a browser extension that blocks distracting websites. We built it to be as private as possible. Here's exactly what we collect, what we don't, and how your data is protected.</p>
+
+    <div class="highlight">
+      <p><strong>The short version:</strong> We collect your email (encrypted), a hashed password, and your blocking configuration. That's it. No browsing history, no tracking, no analytics. Your data is yours.</p>
+    </div>
+
+    <h2>What we collect</h2>
+    <p>If you create an account to sync across devices, we store:</p>
+    <ul>
+      <li><strong>Email address</strong> — encrypted at rest using AES-256-GCM. We cannot read your email in our database. It's used solely to identify your account when you log in.</li>
+      <li><strong>Password</strong> — hashed using PBKDF2-SHA256 with 100,000 iterations and a unique random salt. We never see or store your actual password.</li>
+      <li><strong>Blocking configuration</strong> — which categories, sites, and features you've toggled on or off. This is what syncs between your devices.</li>
+      <li><strong>Device name</strong> — when you register a device for sync, we derive a short label (e.g. "Chrome on macOS") from your browser's user agent string. The full user agent is not stored on our servers.</li>
+      <li><strong>Authentication tokens</strong> — access and refresh tokens are stored locally in your browser's extension storage to keep you signed in. These are cleared when you sign out or delete your account.</li>
+    </ul>
+
+    <h2>What we don't collect</h2>
+    <ul>
+      <li>No browsing history</li>
+      <li>No page content</li>
+      <li>No cookies or session data from other sites</li>
+      <li>No analytics or usage tracking</li>
+      <li>No advertising identifiers</li>
+      <li>No data is sold or shared with third parties</li>
+    </ul>
+
+    <h2>Without an account</h2>
+    <p>Circuit Breaker works perfectly without creating an account. Your blocking selections are stored locally in your browser's storage and are never sent anywhere. No data leaves your device.</p>
+
+    <h2>Where data lives</h2>
+    <ul>
+      <li><strong>Local device</strong> — your selections are stored in the browser's local storage. This data stays on your device and is removed when you uninstall the extension.</li>
+      <li><strong>Cloud sync (optional)</strong> — if you create an account, your encrypted email, hashed password, and blocking configuration are stored on Cloudflare's D1 database infrastructure.</li>
+      <li><strong>Self-hosted option</strong> — you can run your own Circuit Breaker sync server using Docker. In this case, all data stays on your own infrastructure and never touches our servers.</li>
+    </ul>
+
+    <h2>How the extension works</h2>
+    <p>The Circuit Breaker extension runs entirely in your browser. When you trip a switch:</p>
+    <ul>
+      <li>Domain-level blocks use Chrome's <code>declarativeNetRequest</code> API — the browser blocks requests before they're made. The extension never sees the content of blocked pages.</li>
+      <li>Feature-level blocks (like hiding YouTube comments) inject a small CSS stylesheet that hides specific elements. No page content is read or transmitted.</li>
+      <li>The extension communicates with the Circuit Breaker dashboard website via <code>postMessage</code> to receive configuration updates. This only happens on the Circuit Breaker dashboard page, not on any other website.</li>
+    </ul>
+
+    <h2>Permissions explained</h2>
+    <ul>
+      <li><strong>"Read and change all your data on all websites"</strong> — this permission (<code>&lt;all_urls&gt;</code>) is required because Circuit Breaker needs to block any website you choose and hide elements on any site. The extension only uses this to apply your blocking rules — it does not read, collect, or transmit any page content.</li>
+      <li><strong>Storage</strong> — to save your blocking selections locally.</li>
+      <li><strong>declarativeNetRequest</strong> — to block website requests at the browser level.</li>
+    </ul>
+
+    <h2>Third-party services</h2>
+    <ul>
+      <li><strong>Cloudflare</strong> — hosts the website, API, and database (for sync accounts). <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>.</li>
+      <li><strong>Stripe</strong> — processes payments if you upgrade to a paid sync plan. We do not store your card details. <a href="https://stripe.com/privacy">Stripe's privacy policy</a>.</li>
+      <li><strong>Google Fonts</strong> — loads the DM Sans typeface on the dashboard website. No fonts are loaded by the extension itself.</li>
+    </ul>
+
+    <h2>Data retention and deletion</h2>
+    <p>You can delete your account at any time from the Settings panel. This immediately and permanently removes all your data from our servers — your encrypted email, hashed password, blocking configuration, device registrations, and sessions. There is no recovery.</p>
+    <p>If you uninstall the extension without an account, all local data is automatically removed by your browser.</p>
+
+    <h2>Children</h2>
+    <p>Circuit Breaker does not knowingly collect data from children under 13. The extension can be used by parents to block content on their children's devices using the device lock feature.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we make significant changes to this policy, we'll update the date at the top and note what changed. The extension itself does not collect any additional data beyond what's described here.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about privacy? Open an issue on <a href="https://github.com/BlockBuilderJoe/switch">GitHub</a> or email <a href="mailto:privacy@josephpalmer.co.uk">privacy@josephpalmer.co.uk</a>.</p>
+  </div>
+</body>
+</html>
