@@ -137,13 +137,24 @@ function detectExtension() {
 function updateExtensionBadge() {
   const badge = document.getElementById('ext-badge');
   const prompt = document.getElementById('install-prompt');
+  const extStatus = document.getElementById('ext-status');
+  const browserName = document.getElementById('hero-browser-name')?.textContent || 'Chrome';
   if (badge) {
     if (extensionConnected) {
       badge.innerHTML = '<span class="ext-dot"></span> Connected';
       badge.className = 'ext-badge connected';
     } else {
-      badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Not installed';
-      badge.className = 'ext-badge disconnected';
+      badge.innerHTML = '';
+      badge.className = 'ext-badge';
+      badge.style.display = 'none';
+    }
+  }
+  if (extStatus) {
+    if (extensionConnected) {
+      extStatus.style.display = 'none';
+    } else {
+      extStatus.innerHTML = '<span class="ext-status-sep">&middot;</span> <a href="#download" class="ext-status-link"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Install for ' + browserName + '</a>';
+      extStatus.style.display = '';
     }
   }
   if (prompt) {
@@ -155,8 +166,8 @@ function updateExtensionBadge() {
 function flashInstallPrompt() {
   if (extensionConnected) return;
   const prompt = document.getElementById('install-prompt');
-  const badge = document.getElementById('ext-badge');
-  [prompt, badge].forEach(el => {
+  const extStatus = document.getElementById('ext-status');
+  [prompt, extStatus].forEach(el => {
     if (!el) return;
     el.classList.remove('flash');
     void el.offsetWidth;

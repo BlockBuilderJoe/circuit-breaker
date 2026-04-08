@@ -252,6 +252,12 @@ body.light{
 .status-dot{width:6px;height:6px;border-radius:50%;background:var(--status-dot-off);flex-shrink:0}
 .status-dot.active{background:var(--green);box-shadow:0 0 6px var(--green-glow)}
 .status-dot.partial{background:var(--amber);box-shadow:0 0 6px rgba(245,158,11,.3)}
+.ext-status{display:inline-flex;align-items:center;gap:0}
+.ext-status-sep{color:var(--text-tri);margin:0 2px}
+.ext-status-link{display:inline-flex;align-items:center;gap:4px;color:var(--red);font-weight:600;text-decoration:none;padding:2px 8px;border-radius:5px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.15);transition:all .15s;font-size:.72rem}
+.ext-status-link:hover{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.3)}
+.ext-status-link svg{flex-shrink:0}
+.ext-status.flash .ext-status-link{animation:flash-install .6s ease-out}
 .sync-badge{margin-left:auto;font-size:.65rem;color:var(--text-tri);padding:2px 8px;background:var(--surface);border:1px solid var(--border);border-radius:4px}
 
 /* Navigation bar */
