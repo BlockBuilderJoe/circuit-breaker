@@ -228,6 +228,7 @@
 
       <div class="hero-ctas">
         <a href="#why" id="hero-try" class="btn-primary hero-cta">See how it works &darr;</a>
+        <a href="#sync" class="btn-ghost hero-cta" style="font-size:.82rem;padding:8px 16px;color:var(--text-sec)">Sync &amp; Pricing</a>
         <a href="#" id="hero-install" class="btn-secondary hero-cta-install">
           <span>Install for <span id="hero-browser-name">Chrome</span></span>
         </a>
@@ -427,8 +428,75 @@
       <a href="#" class="store-link" data-store="safari">Safari Extensions</a>
       <a href="#" class="store-link" data-store="edge">Edge Add-ons</a>
     </div>
-    <p class="download-self-host">Or <a href="https://github.com/BlockBuilderJoe/switch">self-host for free</a></p>
+    <p class="download-self-host">Or <a href="https://github.com/BlockBuilderJoe/circuit-breaker">self-host for free</a></p>
     <p class="download-self-host" style="margin-top:8px"><a href="/privacy.html">Privacy Policy</a></p>
+  </div>
+
+  <!-- ═══ SECTION 5: Sync Pricing ═══ -->
+  <div id="sync" class="page-section sync-section">
+    <h2 class="section-heading">Sync across all your devices</h2>
+    <p class="sync-sub">Circuit Breaker works 100% locally with no account. Want your settings everywhere? Pick a plan.</p>
+
+    <div class="pricing-grid">
+
+      <!-- Free / Self-Host -->
+      <div class="pricing-card">
+        <div class="pricing-badge">Open Source</div>
+        <h3 class="pricing-name">Self-Hosted</h3>
+        <div class="pricing-amount">
+          <span class="pricing-currency">$</span><span class="pricing-value">0</span>
+          <span class="pricing-period">forever</span>
+        </div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Unlimited devices</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Full sync</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Docker one-liner</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Your server, your data</li>
+        </ul>
+        <a href="https://github.com/BlockBuilderJoe/circuit-breaker#self-host" class="btn-secondary pricing-btn">View on GitHub</a>
+        <p class="pricing-note">docker pull josephpalmer/circuit-breaker</p>
+      </div>
+
+      <!-- Monthly -->
+      <div class="pricing-card">
+        <div class="pricing-badge">Monthly</div>
+        <h3 class="pricing-name">Hosted Sync</h3>
+        <div class="pricing-amount">
+          <span class="pricing-currency">$</span><span class="pricing-value">1</span>
+          <span class="pricing-period">/month</span>
+        </div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Up to 10 devices</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Instant cloud sync</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Zero setup</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Cancel anytime</li>
+        </ul>
+        <button class="btn-secondary pricing-btn" onclick="document.getElementById('sync-signin-btn')?.click();window.scrollTo({top:document.getElementById('circuitboard').offsetTop,behavior:'smooth'})">Get started</button>
+        <p class="pricing-note">Sign in from the dashboard above</p>
+      </div>
+
+      <!-- Annual -->
+      <div class="pricing-card pricing-card--accent">
+        <div class="pricing-badge pricing-badge--green">Best Value</div>
+        <h3 class="pricing-name">Hosted Sync</h3>
+        <div class="pricing-amount">
+          <span class="pricing-currency">$</span><span class="pricing-value">10</span>
+          <span class="pricing-period">/year</span>
+        </div>
+        <div class="pricing-save">Save $2 vs monthly</div>
+        <ul class="pricing-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Up to 10 devices</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Instant cloud sync</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Zero setup</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Cancel anytime</li>
+        </ul>
+        <button class="btn-primary pricing-btn" onclick="document.getElementById('sync-signin-btn')?.click();window.scrollTo({top:document.getElementById('circuitboard').offsetTop,behavior:'smooth'})">Get started</button>
+        <p class="pricing-note">Sign in from the dashboard above</p>
+      </div>
+
+    </div>
+
+    <p class="sync-footer">No account needed for local use. Sync is optional. <a href="https://github.com/BlockBuilderJoe/circuit-breaker#self-host">Self-hosting docs on GitHub.</a></p>
   </div>
 
   <script src="js/blocklists.js"></script>
