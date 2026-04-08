@@ -667,9 +667,9 @@ document.getElementById('changelog').innerHTML = `
     </div>
     <div style="font-weight:700;color:#22c55e;margin-bottom:4px">v1.5.0 — Cloud Sync</div>
     <ul style="padding-left:16px;color:#777">
-      <li>Cross-device sync (hosted $0.50/mo or self-host free)</li>
+      <li>Cross-device sync (hosted $1/mo or $10/yr, or self-host free)</li>
       <li>Email + password auth with JWT</li>
-      <li>Device management (10 device limit for hosted)</li>
+      <li>Device management (unlimited devices)</li>
       <li>Auto-push/pull with debounce</li>
       <li>Stripe integration for subscriptions</li>
       <li>Self-hosted Docker container with SQLite</li>

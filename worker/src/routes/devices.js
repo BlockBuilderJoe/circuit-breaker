@@ -20,13 +20,7 @@ devices.post('/', async (c) => {
 
   if (!name) return c.json({ error: 'Device name required' }, 400);
 
-  // Check device limit (10 for hosted, unlimited for self-hosted)
-  if (!selfHosted) {
-    const existing = await db.query('SELECT COUNT(*) as count FROM devices WHERE user_id = ?', [userId]);
-    if (existing[0]?.count >= 10) {
-      return c.json({ error: 'Device limit reached (10). Remove a device first.' }, 403);
-    }
-  }
+  // No device limit — unlimited for all plans
 
   // Role comes from the client: 'host' (web dashboard) or 'client' (extension)
   const role = requestedRole === 'host' ? 'host' : 'client';
