@@ -12,6 +12,7 @@
     "test:site:all": "node run-all-browsers.js --site",
     "test:url-blocking": "node run-url-blocking.js",
     "test:url-blocking:verbose": "node run-url-blocking.js --verbose",
+    "test:following-only": "node run-following-only.js",
     "test:restricted": "node run-restricted.js",
     "test:restricted:headless": "node run-restricted.js --headless",
     "test:restricted:adult": "node run-restricted.js --category adult-content",

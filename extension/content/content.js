@@ -18,7 +18,7 @@ let lastUrl = location.href;
 // clicking a followed creator's video plays normally without looping.
 const FOLLOWING_REDIRECTS = [
   { featureId: 'yt-subs-only', domain: 'youtube.com', target: '/feed/subscriptions', homePaths: ['/', ''] },
-  { featureId: 'tt-following', domain: 'tiktok.com', target: '/following', homePaths: ['/', '', '/foryou'] },
+  { featureId: 'tt-following', domain: 'tiktok.com', target: '/following', homePaths: ['/', '', '/foryou', '/explore'] },
   { featureId: 'tw-subs-only', domain: 'twitch.tv', target: '/directory/following', homePaths: ['/', ''] },
 ];
 
