@@ -65,8 +65,7 @@ window.addEventListener('message', (event) => {
       hiddenSelectors: msg.selectors,
     };
     if (msg.selections) toStore.selections = msg.selections;
-    if (event.data.allowedChannels !== undefined) toStore.allowedChannels = event.data.allowedChannels;
-    if (event.data.subsOnlyMode !== undefined) toStore.subsOnlyMode = event.data.subsOnlyMode;
+    if (event.data.followingOnly !== undefined) toStore.followingOnly = event.data.followingOnly;
 
     try {
       chrome.storage.sync.set(toStore);

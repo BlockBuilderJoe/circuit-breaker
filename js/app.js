@@ -1,6 +1,6 @@
 // Circuit Breaker Web Dashboard — Main Application Logic
 
-const SYNC_KEYS = ['selections', 'blockedDomains', 'blockedUrls', 'hiddenSelectors', 'allowedChannels', 'subsOnlyMode'];
+const SYNC_KEYS = ['selections', 'blockedDomains', 'blockedUrls', 'hiddenSelectors', 'followingOnly'];
 
 // Brand logos (official SVG marks) + colors for site labels
 const BRANDS = {

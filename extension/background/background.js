@@ -1,4 +1,4 @@
-// Circuit Breaker — Background Service Worker v2.0.0
+// Circuit Breaker — Background Service Worker v2.0.1
 importScripts('../sync/sync.js');
 
 // --- Dev auto-reload: polls a local dev server for build changes ---

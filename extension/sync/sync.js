@@ -1,7 +1,7 @@
 // Circuit Breaker Sync Layer
 // Runs in the background service worker. Syncs local settings to/from the server.
 
-const SYNC_KEYS = ['selections', 'blockedDomains', 'blockedUrls', 'hiddenSelectors', 'allowedChannels', 'subsOnlyMode'];
+const SYNC_KEYS = ['selections', 'blockedDomains', 'blockedUrls', 'hiddenSelectors', 'followingOnly'];
 const POLL_INTERVAL = 60000; // 60 seconds
 const DEBOUNCE_DELAY = 2000; // 2 seconds
 

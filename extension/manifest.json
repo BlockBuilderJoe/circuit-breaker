@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Circuit Breaker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Your circuit breaker for the internet. Block distracting sites, hide addictive features, and optionally sync across devices.",
   "permissions": [
     "storage",

@@ -10,9 +10,17 @@ if (SAFE_HOSTS.includes(location.hostname)) {
 
 let hiddenSelectors = {};
 let blockedUrlRules = [];
-let allowedChannels = [];
-let subsOnlyMode = false;
+let followingOnly = {};
 let lastUrl = location.href;
+
+// Follower-only redirects: when enabled, bounce the home/FYP-style page to the
+// native followed feed. Individual video/channel pages are untouched, so
+// clicking a followed creator's video plays normally without looping.
+const FOLLOWING_REDIRECTS = [
+  { featureId: 'yt-subs-only', domain: 'youtube.com', target: '/feed/subscriptions', homePaths: ['/', ''] },
+  { featureId: 'tt-following', domain: 'tiktok.com', target: '/following', homePaths: ['/', '', '/foryou'] },
+  { featureId: 'tw-subs-only', domain: 'twitch.tv', target: '/directory/following', homePaths: ['/', ''] },
+];
 
 // Built-in cookie consent selectors — applied when the cookie-popups feature is enabled.
 // Many publishers self-host consent scripts (e.g. sourcepoint.theguardian.com,
@@ -22,7 +30,7 @@ const COOKIE_CONSENT_CSS = '#onetrust-banner-sdk, #onetrust-consent-sdk, .onetru
 
 // Load config from storage
 function loadConfig() {
-  chrome.storage.sync.get(['hiddenSelectors', 'blockedUrls', 'allowedChannels', 'subsOnlyMode', 'selections'], (data) => {
+  chrome.storage.sync.get(['hiddenSelectors', 'blockedUrls', 'followingOnly', 'selections'], (data) => {
     hiddenSelectors = data.hiddenSelectors || {};
 
     // Ensure cookie consent CSS is applied when the feature is enabled,
@@ -35,11 +43,10 @@ function loadConfig() {
     }
 
     blockedUrlRules = data.blockedUrls || [];
-    allowedChannels = (data.allowedChannels || []).map(c => c.toLowerCase().trim());
-    subsOnlyMode = data.subsOnlyMode || false;
+    followingOnly = data.followingOnly || {};
     applyHiding();
     checkUrl();
-    if (subsOnlyMode) checkChannel();
+    checkFollowingOnly();
   });
 }
 
@@ -151,78 +158,20 @@ function checkUrl() {
   }
 }
 
-// --- Subs Only Mode: check if current video is from an allowed channel ---
-function checkChannel() {
-  if (!subsOnlyMode) return;
-  const hostname = location.hostname.replace('www.', '');
-  if (hostname !== 'youtube.com') return;
-
-  // Only check on video watch pages
-  if (!location.pathname.startsWith('/watch')) return;
+// --- Follower-Only Mode: redirect home/FYP to the native followed feed ---
+function checkFollowingOnly() {
   if (isRedirecting) return;
-
-  // Wait for the channel name to load (YouTube is dynamic)
-  const tryCheck = (attempts) => {
-    if (attempts <= 0) return;
-
-    // Try multiple selectors for the channel name
-    const channelEl =
-      document.querySelector('#owner #channel-name a') ||
-      document.querySelector('ytd-video-owner-renderer #channel-name a') ||
-      document.querySelector('#upload-info #channel-name a') ||
-      document.querySelector('.ytd-channel-name a');
-
-    if (!channelEl) {
-      setTimeout(() => tryCheck(attempts - 1), 500);
-      return;
-    }
-
-    const channelName = channelEl.textContent.trim().toLowerCase();
-    const channelHandle = (channelEl.href || '').split('/').pop()?.toLowerCase().replace('@', '') || '';
-
-    const isAllowed = allowedChannels.some(allowed =>
-      channelName.includes(allowed) ||
-      channelHandle.includes(allowed) ||
-      allowed.includes(channelName) ||
-      allowed.replace('@', '') === channelHandle
-    );
-
-    if (!isAllowed) {
-      isRedirecting = true;
-      window.stop();
-      document.title = 'Channel not in allow list — Circuit Breaker';
-      document.body.innerHTML = `
-        <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#07080a;color:#e4e6ea;font-family:system-ui,sans-serif;text-align:center">
-          <div style="max-width:400px">
-            <div style="font-size:1.5rem;font-weight:800;margin-bottom:8px">Subs Only Mode</div>
-            <div style="color:#888;margin-bottom:8px"><strong style="color:#e4e6ea">${channelEl.textContent.trim()}</strong> is not in your allowed channels list.</div>
-            <div style="color:#555;font-size:.8rem;margin-bottom:20px">Add this channel in Circuit Breaker settings to allow it.</div>
-            <div style="display:flex;gap:8px;justify-content:center">
-              <a href="javascript:history.back()" style="color:#22c55e;text-decoration:none;padding:8px 20px;border:1px solid rgba(34,197,94,.3);border-radius:8px;font-size:.85rem">Go Back</a>
-              <button id="fb-allow-channel" style="color:#fff;background:#22c55e;border:none;padding:8px 20px;border-radius:8px;font-size:.85rem;cursor:pointer;font-weight:600">Allow this channel</button>
-            </div>
-          </div>
-        </div>
-      `;
-      // Quick-allow button
-      document.getElementById('fb-allow-channel')?.addEventListener('click', () => {
-        const handle = channelHandle || channelName;
-        chrome.storage.sync.get(['allowedChannels'], (data) => {
-          const channels = data.allowedChannels || [];
-          channels.push(handle);
-          chrome.storage.sync.set({ allowedChannels: channels }, () => {
-            allowedChannels.push(handle.toLowerCase());
-            isRedirecting = false;
-            location.reload();
-          });
-        });
-      });
-      setTimeout(() => { isRedirecting = false; }, 1000);
-    }
-  };
-
-  // Give YouTube time to render the channel name
-  setTimeout(() => tryCheck(10), 1000);
+  const hostname = location.hostname.replace('www.', '');
+  const rule = FOLLOWING_REDIRECTS.find(r => hostname === r.domain || hostname.endsWith('.' + r.domain));
+  if (!rule) return;
+  if (!followingOnly[rule.featureId]) return;
+  // Already on (or inside) the target feed — leave alone.
+  if (location.pathname === rule.target || location.pathname.startsWith(rule.target + '/')) return;
+  // Only redirect from home/FYP entry points, not individual video/channel pages.
+  if (!rule.homePaths.includes(location.pathname)) return;
+  isRedirecting = true;
+  location.replace(rule.target);
+  setTimeout(() => { isRedirecting = false; }, 1000);
 }
 
 // Watch for SPA navigation (URL changes without page reload)
@@ -233,7 +182,7 @@ function watchUrlChanges() {
       lastUrl = location.href;
       checkUrl();
       applyHiding();
-      if (subsOnlyMode) checkChannel();
+      checkFollowingOnly();
     }
   }, 500);
 
@@ -268,7 +217,7 @@ function watchUrlChanges() {
       lastUrl = location.href;
       checkUrl();
       applyHiding();
-      if (subsOnlyMode) checkChannel();
+      checkFollowingOnly();
     }, 0);
   });
 }
@@ -300,12 +249,9 @@ chrome.storage.onChanged.addListener((changes, area) => {
       blockedUrlRules = changes.blockedUrls.newValue || [];
       checkUrl();
     }
-    if (changes.allowedChannels) {
-      allowedChannels = (changes.allowedChannels.newValue || []).map(c => c.toLowerCase().trim());
-    }
-    if (changes.subsOnlyMode) {
-      subsOnlyMode = changes.subsOnlyMode.newValue || false;
-      if (subsOnlyMode) checkChannel();
+    if (changes.followingOnly) {
+      followingOnly = changes.followingOnly.newValue || {};
+      checkFollowingOnly();
     }
   }
 });

@@ -1,5 +1,11 @@
 # Circuit Breaker Changelog
 
+## v2.0.1 — 2026-04-10
+- **Follower-only redirects**: YouTube, TikTok, and Twitch "Following Only" toggles now redirect the home/FYP page to the native followed feed (`/feed/subscriptions`, `/following`, `/directory/following`). Previously TikTok and Twitch toggles were wired up in the UI but did nothing at runtime.
+- Fixed shared-state bug: each site's follower-only flag is now independent. Enabling it on YouTube no longer affects TikTok/Twitch.
+- Removed the manual "Allowed Channels" editor — the feature now uses your real platform subscriptions instead of a hand-curated list.
+- Individual video/channel pages (`/watch`, `/@user/video/*`, channel pages) are untouched, so clicking a followed creator's video plays normally.
+
 ## v2.0.0 — 2026-04-01
 - **Rebrand**: FuseBox is now Circuit Breaker (circuitbreaker.app)
 - New action language: "trip" replaces "switch off"
